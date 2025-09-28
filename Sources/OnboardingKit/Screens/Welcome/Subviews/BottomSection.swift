@@ -8,24 +8,23 @@
 import SwiftUI
 
 @available(iOS 18.0, macOS 15.0, *) @MainActor
-struct BottomSection<C: View> {
+struct BottomSection {
     private let accentColor: Color
     private let appDisplayName: String
     private let continueAction: () -> Void
-    private let dataPrivacyContent: () -> C
-    @State private var isDataPrivacyPresented: Bool = false
+    private let dataPrivacyAction: () -> Void
     @State private var isAnimating: Bool = false
 
     init(
         accentColor: Color,
         appDisplayName: String,
         continueAction: @escaping () -> Void,
-        @ViewBuilder dataPrivacyContent: @escaping () -> C
+        dataPrivacyAction: @escaping () -> Void
     ) {
         self.accentColor = accentColor
         self.appDisplayName = appDisplayName
         self.continueAction = continueAction
-        self.dataPrivacyContent = dataPrivacyContent
+        self.dataPrivacyAction = dataPrivacyAction
     }
 
     private func onAppear() {
@@ -35,7 +34,7 @@ struct BottomSection<C: View> {
     }
 
     private func disclosureAction() {
-        isDataPrivacyPresented.toggle()
+        dataPrivacyAction()
     }
 }
 
@@ -53,16 +52,6 @@ extension BottomSection: View {
         .mask(opacityLinearGradient)
         .opacity(isAnimating ? 1 : 0)
         .onAppear(perform: onAppear)
-        .styledSheet(
-            isPresented: $isDataPrivacyPresented,
-            content: dataPrivacySheet
-        )
-    }
-
-    private func dataPrivacySheet() -> some View {
-        NavigationStack {
-            dataPrivacyContent()
-        }
     }
 
     private var dataPrivacyImage: some View {
@@ -127,8 +116,8 @@ extension BottomSection: View {
             continueAction: {
                 print("Continue Tapped")
             },
-            dataPrivacyContent: {
-                Text("Privacy Policy Content")
+            dataPrivacyAction: {
+                print("Privacy Policy Content")
             }
         )
     }

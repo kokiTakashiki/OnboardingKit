@@ -7,23 +7,23 @@
 import SwiftUI
 
 @available(iOS 18.0, macOS 15.0, *) @MainActor
-public struct WelcomeScreen<C: View> {
+public struct WelcomeScreen {
     private let config: OnboardingConfiguration
     private let appIcon: Image
     private let continueAction: () -> Void
-    private let dataPrivacyContent: () -> C
+    private let dataPrivacyAction: () -> Void
     @State private var isAnimating = false
 
     public init(
         config: OnboardingConfiguration,
         appIcon: Image,
         continueAction: @escaping () -> Void,
-        @ViewBuilder dataPrivacyContent: @escaping () -> C
+        dataPrivacyAction: @escaping () -> Void
     ) {
         self.config = config
         self.appIcon = appIcon
         self.continueAction = continueAction
-        self.dataPrivacyContent = dataPrivacyContent
+        self.dataPrivacyAction = dataPrivacyAction
     }
 
     private func onAppear() {
@@ -72,7 +72,7 @@ extension WelcomeScreen: View {
             accentColor: config.accentColor,
             appDisplayName: config.appDisplayName,
             continueAction: continueAction,
-            dataPrivacyContent: dataPrivacyContent
+            dataPrivacyAction: dataPrivacyAction
         )
     }
 }
@@ -85,8 +85,8 @@ extension WelcomeScreen: View {
         continueAction: {
             print("Continue Tapped")
         },
-        dataPrivacyContent: {
-            Text("Privacy Policy Content")
+        dataPrivacyAction: {
+            print("Privacy Policy Content")
         }
     )
 }
