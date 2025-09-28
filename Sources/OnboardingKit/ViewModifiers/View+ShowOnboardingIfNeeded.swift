@@ -11,6 +11,7 @@ import SwiftUI
 /// This extension adds a convenient modifier that automatically handles the display
 /// of onboarding content based on the user's completion status. It provides a
 /// declarative way to integrate onboarding into your app's view hierarchy.
+@available(iOS 18.0, macOS 15.0, *)
 public extension View {
     /// Conditionally shows onboarding content if the user hasn't completed it yet.
     ///
@@ -126,6 +127,7 @@ public extension View {
     }
 }
 
+@available(iOS 18.0, macOS 15.0, *)
 struct OnboardingModifier<C: View, F: View> {
     private let config: OnboardingConfiguration
     private let appIcon: Image
@@ -163,6 +165,7 @@ struct OnboardingModifier<C: View, F: View> {
     }
 }
 
+@available(iOS 18.0, macOS 15.0, *)
 extension OnboardingModifier: ViewModifier {
     func body(content: Content) -> some View {
         if isOnboardingCompleted {
@@ -180,6 +183,7 @@ extension OnboardingModifier: ViewModifier {
     }
 }
 
+@available(iOS 18.0, macOS 15.0, *)
 #Preview("Welcome Screen Only") {
     VStack {
         Spacer()
@@ -193,6 +197,7 @@ extension OnboardingModifier: ViewModifier {
     )
 }
 
+@available(iOS 18.0, macOS 15.0, *)
 #Preview("Welcome Screen with Flow") {
     VStack {
         Spacer()

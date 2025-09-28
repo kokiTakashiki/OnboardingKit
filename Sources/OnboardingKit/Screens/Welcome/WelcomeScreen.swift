@@ -6,7 +6,7 @@
 
 import SwiftUI
 
-@MainActor
+@available(iOS 18.0, macOS 15.0, *) @MainActor
 public struct WelcomeScreen<C: View> {
     private let config: OnboardingConfiguration
     private let appIcon: Image
@@ -33,7 +33,7 @@ public struct WelcomeScreen<C: View> {
     }
 }
 
-@MainActor
+@available(iOS 18.0, macOS 15.0, *) @MainActor
 extension WelcomeScreen: View {
     public var body: some View {
         ScrollView {
@@ -77,6 +77,7 @@ extension WelcomeScreen: View {
     }
 }
 
+@available(iOS 18.0, macOS 15.0, *)
 #Preview {
     WelcomeScreen(
         config: .mock,

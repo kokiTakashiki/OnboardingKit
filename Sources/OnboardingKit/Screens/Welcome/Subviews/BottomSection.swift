@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@MainActor
+@available(iOS 18.0, macOS 15.0, *) @MainActor
 struct BottomSection<C: View> {
     private let accentColor: Color
     private let appDisplayName: String
@@ -39,7 +39,7 @@ struct BottomSection<C: View> {
     }
 }
 
-@MainActor
+@available(iOS 18.0, macOS 15.0, *) @MainActor
 extension BottomSection: View {
     var body: some View {
         VStack(alignment: .center, spacing: .zero) {
@@ -115,6 +115,7 @@ extension BottomSection: View {
     }
 }
 
+@available(iOS 18.0, macOS 15.0, *)
 #Preview {
     VStack {
         Spacer()

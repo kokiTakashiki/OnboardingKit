@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 18.0, macOS 15.0, *)
 extension View {
     func styledSheet<C: View>(
         isPresented: Binding<Bool>,
@@ -21,7 +22,7 @@ extension View {
     }
 }
 
-@MainActor
+@available(iOS 18.0, macOS 15.0, *) @MainActor
 struct StyledSheetModifier<C: View>: ViewModifier {
     private let sheetContent: () -> C
     @Binding private var isPresented: Bool

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@MainActor
+@available(iOS 18.0, macOS 15.0, *) @MainActor
 struct FeatureSection: View {
     private let config: OnboardingConfiguration
     @State private var isAnimating: [Bool] = []
@@ -45,6 +45,7 @@ struct FeatureSection: View {
     }
 }
 
+@available(iOS 18.0, macOS 15.0, *)
 struct FeatureView: View {
     private let info: FeatureInfo
     private let accentColor: Color
@@ -87,6 +88,7 @@ struct FeatureView: View {
     }
 }
 
+@available(iOS 18.0, macOS 15.0, *)
 #Preview {
     ScrollView {
         VStack(spacing: 20) {

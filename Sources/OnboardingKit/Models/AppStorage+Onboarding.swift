@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 18.0, macOS 15.0, *)
 public extension AppStorage<Bool> {
     /// The key used to store onboarding completion state in UserDefaults.
     ///
