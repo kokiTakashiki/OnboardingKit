@@ -10,7 +10,7 @@ import SwiftUI
 ///
 /// This extension adds a convenient modifier that presents the onboarding experience modally
 /// in a sheet when needed, instead of conditionally swapping the root content.
-@available(iOS 18.0, macOS 15.0, *)
+@available(iOS 26.0, macOS 26.0, *)
 public extension View {
     /// Presents onboarding content as a sheet if the user hasn't completed it yet.
     ///
@@ -69,7 +69,7 @@ public extension View {
     }
 }
 
-@available(iOS 18.0, macOS 15.0, *) @MainActor
+@available(iOS 26.0, macOS 26.0, *) @MainActor
 private struct OnboardingSheetModifier<F: View> {
     private let config: OnboardingConfiguration
     private let appIcon: Image
@@ -111,7 +111,7 @@ private struct OnboardingSheetModifier<F: View> {
     }
 }
 
-@available(iOS 18.0, macOS 15.0, *)
+@available(iOS 26.0, macOS 26.0, *)
 extension OnboardingSheetModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
@@ -138,7 +138,7 @@ extension OnboardingSheetModifier: ViewModifier {
     }
 }
 
-@available(iOS 18.0, macOS 15.0, *)
+@available(iOS 26.0, macOS 26.0, *)
 #Preview("Welcome Screen Only") {
     VStack {
         Spacer()
@@ -152,7 +152,7 @@ extension OnboardingSheetModifier: ViewModifier {
     )
 }
 
-@available(iOS 18.0, macOS 15.0, *)
+@available(iOS 26.0, macOS 26.0, *)
 #Preview("Welcome Screen with Flow") {
     VStack {
         Spacer()

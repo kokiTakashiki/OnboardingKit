@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@available(iOS 18.0, macOS 15.0, *) @MainActor
+@available(iOS 26.0, macOS 26.0, *) @MainActor
 struct BottomSection {
     private let accentColor: Color
     private let appDisplayName: String
@@ -38,7 +38,7 @@ struct BottomSection {
     }
 }
 
-@available(iOS 18.0, macOS 15.0, *) @MainActor
+@available(iOS 26.0, macOS 26.0, *) @MainActor
 extension BottomSection: View {
     var body: some View {
         VStack(alignment: .center, spacing: .zero) {
@@ -48,7 +48,7 @@ extension BottomSection: View {
         }
         .padding(.horizontal, 28)
         .padding(.vertical, 24)
-        .background(.background.secondary)
+        .background(.ultraThinMaterial)
         .mask(opacityLinearGradient)
         .opacity(isAnimating ? 1 : 0)
         .onAppear(perform: onAppear)
@@ -84,7 +84,7 @@ extension BottomSection: View {
             label: continueText
         )
         .font(.title3.weight(.medium))
-        .buttonStyle(.borderedProminent)
+        .buttonStyle(.glassProminent)
         .tint(accentColor)
     }
 
@@ -104,7 +104,7 @@ extension BottomSection: View {
     }
 }
 
-@available(iOS 18.0, macOS 15.0, *)
+@available(iOS 26.0, macOS 26.0, *)
 #Preview {
     VStack {
         Spacer()

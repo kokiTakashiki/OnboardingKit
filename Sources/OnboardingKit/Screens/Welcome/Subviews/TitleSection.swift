@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@available(iOS 18.0, macOS 15.0, *) @MainActor
+@available(iOS 26.0, macOS 26.0, *) @MainActor
 struct TitleSection {
     private let config: OnboardingConfiguration
     private let appIcon: Image
@@ -31,7 +31,7 @@ struct TitleSection {
     }
 }
 
-@available(iOS 18.0, macOS 15.0, *) @MainActor
+@available(iOS 26.0, macOS 26.0, *) @MainActor
 extension TitleSection: View {
     var body: some View {
         VStack(alignment: config.titleSectionAlignment, spacing: 2) {
@@ -75,7 +75,7 @@ extension TitleSection: View {
     }
 }
 
-@available(iOS 18.0, macOS 15.0, *)
+@available(iOS 26.0, macOS 26.0, *)
 #Preview {
     TitleSection(
         config: .mock,
