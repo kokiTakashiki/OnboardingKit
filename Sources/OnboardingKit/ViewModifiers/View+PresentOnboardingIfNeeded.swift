@@ -98,7 +98,7 @@ private struct OnboardingSheetModifier<F: View> {
     private func continueAction() {
         if let action = _continueAction {
             action()
-            isWelcomeScreenCompleted = true
+            isOnboardingCompleted = true
         } else if flowContent != nil {
             isWelcomeScreenCompleted = true
         } else {
