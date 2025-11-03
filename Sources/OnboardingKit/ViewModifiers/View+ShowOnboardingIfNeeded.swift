@@ -156,11 +156,6 @@ struct OnboardingModifier<F: View> {
     private func continueAction() {
         if let action = _continueAction {
             action()
-            isOnboardingCompleted = true
-        } else if flowContent != nil {
-            isWelcomeScreenCompleted = true
-        } else {
-            isOnboardingCompleted = true
         }
     }
 }
